@@ -40,7 +40,6 @@ end
 
 def green_eyed_girls(students, eye_colors)
 	greengirls = []
-	
 
 	eye_colors.each_with_index do |eye_color, i|
 		if i%2 == 0
@@ -53,6 +52,14 @@ def green_eyed_girls(students, eye_colors)
 	return greengirls
 end
 	
+def average_age_green(students, eye_colors, ages)
+	greenages = []
+	eye_colors.each_with_index do |eye_color, i|
+		if eye_color == "Green"
+			greenages.push(ages[i])
+		end
+	end
+end
 
 # def vowels(ages, students)
 # 	if age = 15
@@ -69,8 +76,11 @@ end
 # y = old_enough_to_drive(ages, students)
 # puts y
 
-a = green_eyed_girls(students, eye_colors)
-puts a
+# a = green_eyed_girls(students, eye_colors)
+# puts a
 
 # z = vowels(ages, students)
 # puts z
+
+avg = average_age_green()
+puts avg 
