@@ -26,17 +26,33 @@ def students_with_brown_eyes(eye_colors)
 
 end
 
-# def old_enough_to_drive(ages, names)
-# 	drivers = []
+def old_enough_to_drive(ages, students)
+	drivers = []
 
-# 	ages.each do |age|
-# 		if age >= 16
-			
-# 		end
-# 	end
+	ages.each_with_index do |age, i|
+		if age >= 16
+			print students[i]
+		end
+	end
 
-# 	return drivers
-# end
+	return drivers
+end
+
+def green_eyed_girls(students, eye_colors)
+	greengirls = []
+	
+
+	eye_colors.each_with_index do |eye_color, i|
+		if i%2 == 0
+			if eye_color == "Green"
+				greengirls.push(students[i])
+			end
+		end
+	end
+
+	return greengirls
+end
+	
 
 # def vowels(ages, students)
 # 	if age = 15
@@ -47,11 +63,14 @@ end
 # end
 
 
-x = students_with_brown_eyes(eye_colors)
-puts x
+# x = students_with_brown_eyes(eye_colors)
+# puts x
 
-y = old_enough_to_drive(ages)
-puts y
+# y = old_enough_to_drive(ages, students)
+# puts y
 
-z = vowels(ages, students)
-puts z
+a = green_eyed_girls(students, eye_colors)
+puts a
+
+# z = vowels(ages, students)
+# puts z
