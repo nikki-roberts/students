@@ -52,22 +52,24 @@ def green_eyed_girls(students, eye_colors)
 	return greengirls
 end
 	
-def average_age_green(students, eye_colors, ages)
-	greenages = []
-	eye_colors.each_with_index do |eye_color, i|
-		if eye_color == "Green"
-			greenages.push(ages[i])
-		end
-	end
-end
-
-# def vowels(ages, students)
-# 	if age = 15
-# 		students.each do |name|
-
+# def average_age_green(students, eye_colors, ages)
+# 	greenages = []
+# 	eye_colors.each_with_index do |eye_color, i|
+# 		if eye_color == "Green"
+# 			greenages.push(ages[i])
 # 		end
-# 	end 
+# 	end
 # end
+
+def vowels(ages, students)
+	sophomores = []
+		ages.each_with_index do |age, i|
+			if age == 15
+				sophomores.push(students[i])
+			end
+		end
+	return sophomores 
+end
 
 
 # x = students_with_brown_eyes(eye_colors)
@@ -79,8 +81,8 @@ end
 # a = green_eyed_girls(students, eye_colors)
 # puts a
 
-# z = vowels(ages, students)
-# puts z
+z = vowels(ages, students)
+puts z
 
-avg = average_age_green()
-puts avg 
+# avg = average_age_green()
+# puts avg 
