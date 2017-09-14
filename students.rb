@@ -61,14 +61,34 @@ end
 # 	end
 # end
 
-def vowels(ages, students)
+def vowels(ages, students)		# should return Gloria
 	sophomores = []
-		ages.each_with_index do |age, i|
-			if age == 15
-				sophomores.push(students[i])
+	ages.each_with_index do |age, i|
+		if age == 15
+			sophomores.push(students[i])
+		end
+	end
+	# return sophomores
+	vowel_count = []
+	vowels = 0
+	sophomores.each do |sophomore|
+		sophomore.chars.each do |letter|
+			if letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u"
+				vowels += 1
 			end
 		end
-	return sophomores 
+		vowel_count.push(vowels)
+		vowels = 0
+	end
+	max_vowels = vowel_count[0]
+	index = 0
+	vowel_count.each_with_index do |count, i|
+		if count > max_vowels
+			max_vowels = count
+			index = i
+		end
+	end
+	return sophomores[index]
 end
 
 
