@@ -52,14 +52,6 @@ def green_eyed_girls(students, eye_colors)
 	return greengirls
 end
 	
-# def average_age_green(students, eye_colors, ages)
-# 	greenages = []
-# 	eye_colors.each_with_index do |eye_color, i|
-# 		if eye_color == "Green"
-# 			greenages.push(ages[i])
-# 		end
-# 	end
-# end
 
 def vowels(ages, students)		# should return Gloria
 	sophomores = []
@@ -68,7 +60,7 @@ def vowels(ages, students)		# should return Gloria
 			sophomores.push(students[i])
 		end
 	end
-	# return sophomores
+
 	vowel_count = []
 	vowels = 0
 	sophomores.each do |sophomore|
@@ -91,6 +83,34 @@ def vowels(ages, students)		# should return Gloria
 	return sophomores[index]
 end
 
+greenages = []
+avgage = 0
+def average_age_green(students, eye_colors, ages)
+	totalage = 0.0
+	
+	eye_colors.each_with_index do |eye_color, i|
+		if eye_color == "Green"
+			greenages.push(ages[i])
+		end
+	end
+	greenages.each_with_index do |age, i|
+		totalage = totalage + age
+	end
+	avgage = totalage / greenages.length
+	return greenages
+	return avgage
+end
+
+def which_green(greenages, ages, students)
+	which_green_students = []
+	greenages.each_with_index do |ages, students, i|
+		if age == avgage
+			which_green_students.push(students[i])
+		end
+	end
+	puts which_green_students
+end
+
 
 # x = students_with_brown_eyes(eye_colors)
 # puts x
@@ -101,8 +121,11 @@ end
 # a = green_eyed_girls(students, eye_colors)
 # puts a
 
-z = vowels(ages, students)
-puts z
+# z = vowels(ages, students)
+# puts z
 
-# avg = average_age_green()
+# avg = average_age_green(students, eye_colors, ages)
 # puts avg 
+
+which = which_green(greenages, ages, students)
+puts which
