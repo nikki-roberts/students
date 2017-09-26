@@ -104,7 +104,7 @@ end
 def which_green(greenages, ages, students)
 	which_green_students = []
 	greenages.each_with_index do |ages, students, i|
-		if age == avgage
+		while age == avgage
 			which_green_students.push(students[i])
 		end
 	end
