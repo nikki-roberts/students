@@ -116,12 +116,15 @@ end
 def which_green(students, ages, avg, eye_colors)
 	greenages = find_greenages(eye_colors, ages)
 	# print greenages
-	green_students = []
-	index = 0
+	green_student = ""
+	distance_to_avg = 0
 	eye_colors.each_with_index do |eye_color, i|
+		how_far = (age - avg).abs
 		if eye_color == green
-			index = i
-			ages
+			if distance_to_avg > how_far
+				distance_to_avg = how_far
+				green_student = students[i]
+			end
 		end
 	end
 end
