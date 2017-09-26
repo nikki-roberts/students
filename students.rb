@@ -115,12 +115,11 @@ end
 
 def which_green(students, ages, avg, eye_colors)
 	greenages = find_greenages(eye_colors, ages)
-	# print greenages
 	green_student = ""
 	distance_to_avg = 0
 	eye_colors.each_with_index do |eye_color, i|
-		how_far = (age - avg).abs
-		if eye_color == green
+		how_far = (ages[i] - avg).abs
+		if eye_color == "Green"
 			if distance_to_avg > how_far
 				distance_to_avg = how_far
 				green_student = students[i]
@@ -130,17 +129,17 @@ def which_green(students, ages, avg, eye_colors)
 end
 
 
-x = students_with_brown_eyes(eye_colors)
-puts x
+# x = students_with_brown_eyes(eye_colors)
+# puts x
 
-y = old_enough_to_drive(ages, students)
-puts y
+# y = old_enough_to_drive(ages, students)
+# puts y
 
-a = green_eyed_girls(students, eye_colors)
-puts a
+# a = green_eyed_girls(students, eye_colors)
+# puts a
 
-z = vowels(ages, students)
-puts z
+# z = vowels(ages, students)
+# puts z
 
 avg = average_age_green(students, eye_colors, ages)
 puts avg 
