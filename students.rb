@@ -1,6 +1,7 @@
 students = []
 eye_colors = []
-ages = []
+ages = [] 
+blood_types = []
 
 File.open("student_data.csv").each do |line|
 	info = line.split(",")
@@ -114,20 +115,26 @@ end
 
 
 def which_green(students, ages, avg, eye_colors)
-	greenages = find_greenages(eye_colors, ages)
-	green_student = ""
-	distance_to_avg = 0
-	eye_colors.each_with_index do |eye_color, i|
-		how_far = (ages[i] - avg).abs
-		if eye_color == "Green"
-			if distance_to_avg > how_far
-				distance_to_avg = how_far
-				green_student = students[i]
-			end
-		end
-	end
+   avg = average_age_green(students, eye_colors, ages)
+
+   minimum = 20
+   students.each_with_index do |student, i|
+   	if eye_colors[i] == "Green"
+   		min_now = (ages[i] - avg).abs
+   		if min_now < minimum
+   			minimum = min_now
+   		end
+    end
+
+   end	
+
+   return minimum
+
 end
 
+def possible_donors(students, blood_types, names)
+
+end
 
 # x = students_with_brown_eyes(eye_colors)
 # puts x
