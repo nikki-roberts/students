@@ -8,6 +8,7 @@ File.open("student_data.csv").each do |line|
 	students.push(info[0].strip)
 	eye_colors.push(info[1].strip)
 	ages.push(info[2].strip.to_i)
+	blood_types.push(info[3].strip)
 end
 
 # print students, "\n"
@@ -134,51 +135,66 @@ end
 
 def possible_donors(students, blood_types, name)
 
-	possible_types = "X"
+	possible_types = []
+	donors_for_o = []
+	donors_for_ab = []
+	donors_for_a = []
+	donors_for_b = []
 
 	students.each_with_index do |student, i|
 		if student == name
-			if blood_types[i] == "O"
-			donors_for_o = []
-			possible_types = "O" || "A" || "AB" || "B"
-			blood_types.each_with_index do |blood_types, i|
-				if blood_type = possible_types
-					donors_for_o.push(students[i])
-				end
-			end
+			# if blood_types[i] == "O"
+				
+			# 	possible_types = ["O", "A", "AB", "B"]
+			# 	blood_types.each_with_index do |blood_type, i|
+			# 		possible_types.each do |possible_type|
+			# 			if blood_type == possible_type
+			# 				donors_for_o.push(students[i])
+			# 			end
+			# 		end
+			# 	end
+			# end
 
 			if blood_types[i] == "AB"
-				donors_for_ab = []
-				possible_types = "AB"
-				blood_types.each_with_index do |blood_types, i|
-					if blood_type = possible_types
-						donors_for_ab.push(students[i])
+				
+				possible_types = ["AB"]
+				blood_types.each_with_index do |blood_type, i|
+					possible_types.each do |possible_type|
+						if blood_type == possible_types
+							donors_for_ab.push(students[i])
+						end
 					end
 				end
 				
 			end
 
-			if blood_types[i] == "A"
-				donors_for_a = []
-				possible_types = "A" || "AB"
-				blood_types.each_with_index do |blood_types, i|
-					if blood_type = possible_types
-						donors_for_a.push(students[i])
-					end
-				end
+			# if blood_types[i] == "A"
 				
-			end
+			# 	possible_types = ["A", "AB"]
+			# 	blood_types.each_with_index do |blood_type, i|
+			# 		possible_types.each do |possible_type|
+			# 			if blood_type == possible_types
+			# 				donors_for_a.push(students[i])
+			# 			end
+			# 		end
+			# 	end
+				
+			# end
 
-			if blood_types[i] == "B"
-				donors_for_b = []
-				possible_types = "B" || "AB"
-				blood_types.each_with_index do |blood_types, i|
-					if blood_type = possible_types
-						donors_for_b.push(students[i])
-					end
-				end
+			# if blood_types[i] == "B"
 				
-			end
+			# 	possible_types = ["B", "AB"]
+			# 	blood_types.each_with_index do |blood_type, i|
+			# 		possible_types.each do |possible_type|
+			# 			if blood_type == possible_types
+			# 				donors_for_b.push(students[i])
+			# 			end
+			# 		end
+			# 	end
+				
+			# end
+
+			# puts "Blood type #{i}"
 
 			if blood_types[i] == "O"
 				return donors_for_o 
@@ -193,10 +209,12 @@ def possible_donors(students, blood_types, name)
 				return donors_for_ab
 			end
 
+		end
+
 	end
-	end
+
 end
-end
+
 
 
 
@@ -222,7 +240,7 @@ end
 # puts possible1
 # # test blood type o
 
-possible2 = possible_donors(students, blood_types, "Bob")
+possible2 = possible_donors(students, blood_types, "Irene")
 puts possible2
 # test blood type ab
 
